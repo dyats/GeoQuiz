@@ -71,7 +71,7 @@ class MainActivity : AppCompatActivity() {
 
         cheatButton.setOnClickListener {
             val answerIsTrue = quizViewModel.currentQuestionAnswer
-            val intent = CheatActivity.newIntent(this@MainActivity, answerIsTrue)
+            val intent = CheatActivity.newIntent(this, answerIsTrue)
             startActivityForResult(intent, REQUEST_CODE_CHEAT)
         }
 
@@ -144,8 +144,8 @@ class MainActivity : AppCompatActivity() {
 
         val questionTextResId = quizViewModel.currentQuestionText
         questionTextView.setText(questionTextResId)
-        corAnswersTextView.setText(R.string.correct_answers + quizViewModel.correctAnswers)
-        cheatedAnswersTextView.setText(R.string.cheated_answers + quizViewModel.cheatedAnswers)
+        corAnswersTextView.text = getString(R.string.correct_answers, quizViewModel.correctAnswers)
+        cheatedAnswersTextView.text = getString(R.string.cheated_answers, quizViewModel.cheatedAnswers)
     }
 
     private fun checkAnswer(userAnswer: Boolean) {
@@ -153,14 +153,16 @@ class MainActivity : AppCompatActivity() {
 
 
         val messageResId =
-            if (quizViewModel.currentQuestionIsCheated) {
-                quizViewModel.cheatedAnswers++
-                R.string.judgment_toast
-            } else if (userAnswer == correctAnswer) {
-                quizViewModel.correctAnswers++
-                R.string.correct_toast
-            } else {
-                R.string.incorrect_toast
+            when {
+                quizViewModel.currentQuestionIsCheated -> {
+                    quizViewModel.cheatedAnswers++
+                    R.string.judgment_toast
+                }
+                userAnswer == correctAnswer -> {
+                    quizViewModel.correctAnswers++
+                    R.string.correct_toast
+                }
+                else -> R.string.incorrect_toast
             }
 
         quizViewModel.currentQuestionIsAnswered = true

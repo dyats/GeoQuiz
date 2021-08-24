@@ -9,9 +9,8 @@ import android.widget.Button
 import android.widget.TextView
 import com.denchik.geoquiz.R
 
-private const val EXTRA_ANSWER_IS_TRUE =  "com.denchik.geoquiz.answer_is_true"
-const val EXTRA_ANSWER_SHOWN = "com.denchik.geoquiz.answer_shown"
-const val EXTRA_QUESTION_INDEX = "com.denchik.geoquiz.question_index"
+private const val EXTRA_ANSWER_IS_TRUE =  "com.denchik.geoquiz.activities.answer_is_true"
+const val EXTRA_ANSWER_SHOWN = "com.denchik.geoquiz.activities.answer_shown"
 
 class CheatActivity : AppCompatActivity() {
 
