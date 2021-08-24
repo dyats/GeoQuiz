@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".activities.MainActivity">
 
     <Button
         android:id="@+id/cheat_button"
@@ -39,30 +39,45 @@
             android:text="@string/false_button"/>
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/correct_answers_text_view"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal|bottom"
-        android:padding="24dp"
-        tools:text="@string/correct_answers" />
+        android:layout_gravity="bottom">
 
-    <ImageButton
-        android:id="@+id/prev_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|left"
-        android:layout_margin="15dp"
-        android:src="@drawable/ic_round_arrow_left_24"
-        android:contentDescription="@string/prev_button"/>
+        <ImageButton
+            android:id="@+id/prev_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_round_arrow_left_24"
+            android:contentDescription="@string/prev_button"/>
 
-    <ImageButton
-        android:id="@+id/next_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|right"
-        android:layout_margin="15dp"
-        android:src="@drawable/ic_round_arrow_right_24"
-        android:contentDescription="@string/next_button"/>
+        <TextView
+            android:id="@+id/correct_answers_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/prev_button"
+            android:padding="24dp"
+            tools:text="@string/correct_answers" />
+
+        <TextView
+            android:id="@+id/cheated_answers_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/next_button"
+            android:padding="24dp"
+            tools:text="@string/cheated_answers" />
+
+        <ImageButton
+            android:id="@+id/next_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:contentDescription="@string/next_button"
+            android:src="@drawable/ic_round_arrow_right_24" />
+
+    </RelativeLayout>
 
 </FrameLayout>

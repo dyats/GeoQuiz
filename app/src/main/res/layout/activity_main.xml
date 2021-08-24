@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    tools:context=".MainActivity">
+    tools:context=".activities.MainActivity">
 
     <TextView
         android:id="@+id/question_text_view"
@@ -67,5 +67,14 @@
             android:src="@drawable/ic_round_arrow_right_24"
             android:contentDescription="@string/next_button"/>
     </FrameLayout>
+
+
+    <TextView
+        android:id="@+id/cheated_answers_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:padding="24dp"
+        tools:text="@string/cheated_answers" />
 
 </LinearLayout>
