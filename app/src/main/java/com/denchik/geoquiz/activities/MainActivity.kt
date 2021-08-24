@@ -152,17 +152,16 @@ class MainActivity : AppCompatActivity() {
         val correctAnswer = quizViewModel.currentQuestionAnswer
 
 
-        val messageResId = when {
-            quizViewModel.currentQuestionIsCheated -> {
+        val messageResId =
+            if (quizViewModel.currentQuestionIsCheated) {
                 quizViewModel.cheatedAnswers++
                 R.string.judgment_toast
-            }
-            userAnswer == correctAnswer -> {
+            } else if (userAnswer == correctAnswer) {
                 quizViewModel.correctAnswers++
                 R.string.correct_toast
+            } else {
+                R.string.incorrect_toast
             }
-            else -> R.string.incorrect_toast
-        }
 
         quizViewModel.currentQuestionIsAnswered = true
 
