@@ -45,10 +45,10 @@ class MainActivity : AppCompatActivity() {
         falseButton = findViewById(R.id.false_button)
         nextButton = findViewById(R.id.next_button)
         prevButton = findViewById(R.id.prev_button)
-        //cheatButton = findViewById(R.id.cheat_button)
+        cheatButton = findViewById(R.id.cheat_button)
         questionTextView = findViewById(R.id.question_text_view)
         corAnswersTextView = findViewById(R.id.correct_answers_text_view)
-        //cheatedAnswersTextView = findViewById(R.id.cheated_answers_text_view)
+        cheatedAnswersTextView = findViewById(R.id.cheated_answers_text_view)
 
         trueButton.setOnClickListener { view: View ->
             checkAnswer(true)
@@ -70,11 +70,11 @@ class MainActivity : AppCompatActivity() {
             updateQuestion()
         }
 
-        /*cheatButton.setOnClickListener {
+        cheatButton.setOnClickListener {
             val answerIsTrue = quizViewModel.currentQuestionAnswer
             val intent = CheatActivity.newIntent(this, answerIsTrue)
             startActivityForResult(intent, REQUEST_CODE_CHEAT)
-        }*/
+        }
 
         questionTextView.setOnClickListener { view: View ->
             nextButton.callOnClick()
@@ -91,7 +91,7 @@ class MainActivity : AppCompatActivity() {
         updateQuestion()
     }
 
-    /*override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
         if(resultCode != Activity.RESULT_OK){
@@ -101,7 +101,7 @@ class MainActivity : AppCompatActivity() {
         if(requestCode == REQUEST_CODE_CHEAT){
             quizViewModel.currentQuestionIsCheated = data?.getBooleanExtra(EXTRA_ANSWER_SHOWN, false) ?: false
         }
-    }*/
+    }
 
     override fun onStart() {
         super.onStart()
@@ -146,7 +146,7 @@ class MainActivity : AppCompatActivity() {
         val questionTextResId = quizViewModel.currentQuestionText
         questionTextView.setText(questionTextResId)
         corAnswersTextView.text = getString(R.string.correct_answers, quizViewModel.correctAnswers)
-        //cheatedAnswersTextView.text = getString(R.string.cheated_answers, quizViewModel.cheatedAnswers)
+        cheatedAnswersTextView.text = getString(R.string.cheated_answers, quizViewModel.cheatedAnswers)
     }
 
     private fun checkAnswer(userAnswer: Boolean) {

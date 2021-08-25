@@ -48,7 +48,7 @@
             android:id="@+id/prev_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical|start"
+            android:layout_gravity="center_vertical|left"
             android:contentDescription="@string/prev_button"
             android:minHeight="48dp"
             android:src="@drawable/ic_round_arrow_left_24" />
@@ -65,12 +65,11 @@
             android:id="@+id/next_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical|end"
+            android:layout_gravity="center_vertical|right"
             android:contentDescription="@string/next_button"
             android:minHeight="48dp"
             android:src="@drawable/ic_round_arrow_right_24" />
     </FrameLayout>
-
 
     <TextView
         android:id="@+id/cheated_answers_text_view"
