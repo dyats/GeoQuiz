@@ -1,3 +1,3 @@
 # GeoQuiz
 
-Created to learn basics of Android development
+Android App to understand some badics of Android development
