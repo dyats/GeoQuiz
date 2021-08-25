@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.TextView
@@ -49,22 +50,22 @@ class MainActivity : AppCompatActivity() {
         corAnswersTextView = findViewById(R.id.correct_answers_text_view)
         cheatedAnswersTextView = findViewById(R.id.cheated_answers_text_view)
 
-        trueButton.setOnClickListener {
+        trueButton.setOnClickListener { view: View ->
             checkAnswer(true)
             nextButton.callOnClick()
         }
 
-        falseButton.setOnClickListener {
+        falseButton.setOnClickListener { view: View ->
             checkAnswer(false)
             nextButton.callOnClick()
         }
 
-        nextButton.setOnClickListener {
+        nextButton.setOnClickListener { view: View ->
             quizViewModel.moveToNext()
             updateQuestion()
         }
 
-        prevButton.setOnClickListener {
+        prevButton.setOnClickListener { view: View ->
             quizViewModel.moveToPrev()
             updateQuestion()
         }
@@ -75,11 +76,11 @@ class MainActivity : AppCompatActivity() {
             startActivityForResult(intent, REQUEST_CODE_CHEAT)
         }
 
-        questionTextView.setOnClickListener {
+        questionTextView.setOnClickListener { view: View ->
             nextButton.callOnClick()
         }
 
-        corAnswersTextView.setOnClickListener {
+        corAnswersTextView.setOnClickListener { view: View ->
             Toast.makeText(
                 this,
                 "You got ${quizViewModel.correctAnswers} right answers",

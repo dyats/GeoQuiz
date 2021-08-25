@@ -50,8 +50,9 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
-            android:src="@drawable/ic_round_arrow_left_24"
-            android:contentDescription="@string/prev_button"/>
+            android:contentDescription="@string/prev_button"
+            android:minHeight="48dp"
+            android:src="@drawable/ic_round_arrow_left_24" />
 
         <TextView
             android:id="@+id/correct_answers_text_view"
@@ -76,6 +77,7 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:contentDescription="@string/next_button"
+            android:minHeight="48dp"
             android:src="@drawable/ic_round_arrow_right_24" />
 
     </RelativeLayout>
