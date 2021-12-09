@@ -12,7 +12,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center_horizontal"
         android:layout_marginBottom="60dp"
-        android:text="@string/cheat_button" />
+        android:text="@string/cheat_button"
+        app:cornerRadius="4dp" />
 
     <TextView
         android:id="@+id/question_text_view"
@@ -30,13 +31,17 @@
             android:id="@+id/true_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/true_button"/>
+            android:text="@string/true_button"
+            android:layout_marginEnd="3dp"
+            app:cornerRadius="4dp"/>
 
         <Button
             android:id="@+id/false_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/false_button"/>
+            android:text="@string/false_button"
+            android:layout_marginStart="3dp"
+            app:cornerRadius="4dp"/>
     </LinearLayout>
 
     <RelativeLayout

@@ -5,10 +5,10 @@
       <map>
         <entry key="..\:/Users/dyats/source/repos/GeoQuiz/app/src/main/res/layout-land/activity_main.xml" value="0.17372134038800705" />
         <entry key="..\:/Users/dyats/source/repos/GeoQuiz/app/src/main/res/layout/activity_cheat.xml" value="0.20520833333333333" />
-        <entry key="..\:/Users/dyats/source/repos/GeoQuiz/app/src/main/res/layout/activity_main.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/dyats/source/repos/GeoQuiz/app/src/main/res/layout/activity_main.xml" value="0.6378244746600742" />
       </map>
     </option>
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK" />
 </project>
