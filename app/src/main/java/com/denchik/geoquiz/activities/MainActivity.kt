@@ -1,6 +1,7 @@
 package com.denchik.geoquiz.activities
 
 import android.app.Activity
+import android.app.ActivityOptions
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -72,8 +73,12 @@ class MainActivity : AppCompatActivity() {
 
         cheatButton.setOnClickListener {
             val answerIsTrue = quizViewModel.currentQuestionAnswer
-            val intent = CheatActivity.newIntent(this, answerIsTrue)
-            startActivityForResult(intent, REQUEST_CODE_CHEAT)
+            val cheatedAnswers = quizViewModel.cheatedAnswers
+            val intent = CheatActivity.newIntent(this, answerIsTrue, cheatedAnswers)
+
+            val options = ActivityOptions.makeClipRevealAnimation(it, 0, 0, it.width, it.height )
+
+            startActivityForResult(intent, REQUEST_CODE_CHEAT, options.toBundle())
         }
 
         questionTextView.setOnClickListener { view: View ->
@@ -100,6 +105,7 @@ class MainActivity : AppCompatActivity() {
 
         if(requestCode == REQUEST_CODE_CHEAT){
             quizViewModel.currentQuestionIsCheated = data?.getBooleanExtra(EXTRA_ANSWER_SHOWN, false) ?: false
+            quizViewModel.cheatedAnswers = data?.getIntExtra(EXTRA_ANSWER_CHEATED, 0) ?: 0;
         }
     }
 
@@ -135,13 +141,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun updateQuestion() {
-        if (!quizViewModel.currentQuestionIsAnswered) {
-            trueButton.isEnabled = true
-            falseButton.isEnabled = true
-        } else {
+        if (quizViewModel.currentQuestionIsAnswered) {
             trueButton.isEnabled = false
             falseButton.isEnabled = false
         }
+
+        if (quizViewModel.cheatedAnswers > 2)
+            cheatButton.isEnabled = false;
 
         val questionTextResId = quizViewModel.currentQuestionText
         questionTextView.setText(questionTextResId)
@@ -155,10 +161,6 @@ class MainActivity : AppCompatActivity() {
 
         val messageResId =
             when {
-                quizViewModel.currentQuestionIsCheated -> {
-                    quizViewModel.cheatedAnswers++
-                    R.string.judgment_toast
-                }
                 userAnswer == correctAnswer -> {
                     quizViewModel.correctAnswers++
                     R.string.correct_toast
